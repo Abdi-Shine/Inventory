@@ -47,9 +47,3 @@ Route::post('profile.store', [AdminController::class, 'AdminProfileStore'])->nam
 Route::middleware('auth')->group(function () {
 Route::post('admin/password/update', [AdminController::class, 'PasswordUpdate'])->name('admin.password.update');
 });
-
-// Temporary route to run migrations on cPanel
-Route::get('/migrate-fresh', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate:fresh --seed');
-    return "Migrations ran successfully! <br>" . \Illuminate\Support\Facades\Artisan::output();
-});
