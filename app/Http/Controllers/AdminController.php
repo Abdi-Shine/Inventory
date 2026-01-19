@@ -20,6 +20,22 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login');
     }
+    
+    public function AdminLockScreen() 
+    {
+        // Capture user data before logout
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $email = Auth::user()->email;
+            $photo = Auth::user()->photo;
+
+            Auth::guard('web')->logout();
+            
+            return view('auth.lock_screen', compact('name', 'email', 'photo'));
+        }
+        
+        return redirect()->route('login');
+    }
 
     // Admin Login
     public function AdminLogin(Request $request)
@@ -31,11 +47,12 @@ class AdminController extends Controller
             session(['verification_code' => $verificationcode, 'user_id' => $user->id]);
            
             try {
+                \Illuminate\Support\Facades\Log::info("Generating code $verificationcode for user " . $user->email);
                 Mail::to($user->email)->send(new VerificationCodeMail($verificationcode));
             } catch (\Exception $e) {
                 // Log the error for debugging
                 \Illuminate\Support\Facades\Log::error("Mail sending failed: " . $e->getMessage());
-                return redirect()->back()->withErrors(['email' => 'Failed to send verification code. Check logs. error:'.$e->getMessage()]);
+                return redirect()->back()->withErrors(['email' => 'Mail delivery failed: returning message to sender']);
             }
             
             auth()->logout();
@@ -124,7 +141,14 @@ class AdminController extends Controller
             'password' => Hash::make($request->new_password),
         ]);
 
-        return redirect()->route('admin.profile')->with('success', 'Password updated successfully.');
+        $email = Auth::user()->email;
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login')
+            ->with('email', $email)
+            ->with('success', 'Password Updated Successfully. Please Login with new Password');
     }
     // End password update Method
     

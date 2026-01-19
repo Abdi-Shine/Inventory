@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
@@ -22,6 +22,10 @@ require __DIR__.'/auth.php';
 //admin logout
 Route::get('admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 //end admin logout
+
+//admin lock screen
+Route::get('admin/lock-screen', [AdminController::class, 'AdminLockScreen'])->name('admin.lock_screen');
+//end admin lock screen
 
 //admin login
 Route::post('admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');

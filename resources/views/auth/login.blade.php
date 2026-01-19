@@ -42,7 +42,7 @@
                                         </div>
                                     @endif
 
-                                    <form method="POST" action="{{ route('login') }}" class="my-4">
+                                    <form method="POST" action="{{ route('admin.login') }}" class="my-4">
                                         @csrf
                                         @if (session('error'))
                                             <div class="alert alert-danger">
@@ -56,7 +56,7 @@
                                         @endif
                                         <div class="form-group mb-3">
                                             <label for="email" class="form-label">Email address</label>
-                                            <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" required autofocus placeholder="Enter your email">
+                                            <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email', session('email')) }}" required autofocus placeholder="Enter your email">
                                             @error('email')
                                                 <span class="text-danger mt-2">{{ $message }}</span>
                                             @enderror
