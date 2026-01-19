@@ -30,7 +30,14 @@ class AdminController extends Controller
             $verificationcode = random_int(100000, 999999);
             session(['verification_code' => $verificationcode, 'user_id' => $user->id]);
            
-            Mail::to($user->email)->send(new VerificationCodeMail($verificationcode));
+            try {
+                Mail::to($user->email)->send(new VerificationCodeMail($verificationcode));
+            } catch (\Exception $e) {
+                // Log the error for debugging
+                \Illuminate\Support\Facades\Log::error("Mail sending failed: " . $e->getMessage());
+                return redirect()->back()->withErrors(['email' => 'Failed to send verification code. Check logs. error:'.$e->getMessage()]);
+            }
+            
             auth()->logout();
             return redirect()->route('custom.verification.form')->with('status', 'Verification code sent to your mail!');
         }
