@@ -43,20 +43,24 @@ class AdminController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $user = auth()->user();
-            $verificationcode = random_int(100000, 999999);
-            session(['verification_code' => $verificationcode, 'user_id' => $user->id]);
-           
-            try {
-                \Illuminate\Support\Facades\Log::info("Generating code $verificationcode for user " . $user->email);
-                Mail::to($user->email)->send(new VerificationCodeMail($verificationcode));
-            } catch (\Exception $e) {
-                // Log the error for debugging
-                \Illuminate\Support\Facades\Log::error("Mail sending failed: " . $e->getMessage());
-                return redirect()->back()->withErrors(['email' => 'Mail delivery failed: returning message to sender']);
-            }
+
+            if ($user->two_factor_enabled) {
+                $verificationcode = random_int(100000, 999999);
+                session(['verification_code' => $verificationcode, 'user_id' => $user->id]);
             
-            auth()->logout();
-            return redirect()->route('custom.verification.form')->with('status', 'Verification code sent to your mail!');
+                try {
+                    \Illuminate\Support\Facades\Log::info("Generating code $verificationcode for user " . $user->email);
+                    Mail::to($user->email)->send(new VerificationCodeMail($verificationcode));
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error("Mail sending failed: " . $e->getMessage());
+                    return redirect()->back()->withErrors(['email' => 'Mail delivery failed: returning message to sender']);
+                }
+                
+                auth()->logout();
+                return redirect()->route('custom.verification.form')->with('status', 'Verification code sent to your mail!');
+            }
+
+            return redirect()->intended(route('dashboard'));
         }
         return redirect()->back()->withErrors(['email' => 'Invalid Credentials Provided']);
     }
@@ -88,6 +92,20 @@ class AdminController extends Controller
         $id = Auth::user()->id;
         $profiledata = User::find($id);
         return view('admin.admin_profile', compact('profiledata'));
+    }
+
+    public function TwoFactorUpdate(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $user->two_factor_enabled = !$user->two_factor_enabled;
+        $user->save();
+
+        $notification = array(
+            'message' => 'Two Factor Authentication Status Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
     //end admin profile
     public function AdminProfileStore(Request $request)

@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 // Cache clearing routes
 Route::get('/clear-cache', function() {
@@ -57,4 +57,5 @@ Route::post('profile.store', [AdminController::class, 'AdminProfileStore'])->nam
 });
 Route::middleware('auth')->group(function () {
 Route::post('admin/password/update', [AdminController::class, 'PasswordUpdate'])->name('admin.password.update');
+Route::post('admin/two-factor/update', [AdminController::class, 'TwoFactorUpdate'])->name('admin.two_factor.update');
 });

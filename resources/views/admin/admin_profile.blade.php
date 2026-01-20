@@ -136,6 +136,37 @@
 </form>
 </div>
 </div>
+</div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-lg-12 col-xl-12">
+        <div class="card border mb-0">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">                      
+                        <h4 class="card-title mb-0">Two Factor Authentication</h4>                      
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @if($profiledata->two_factor_enabled)
+                    <p class="text-success fs-16">Two factor authentication is currently enabled.</p>
+                    <form action="{{ route('admin.two_factor.update') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Disable</button>
+                    </form>
+                @else
+                    <p class="text-muted fs-16">Two factor authentication is currently disabled.</p>
+                    <form action="{{ route('admin.two_factor.update') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Enable</button>
+                    </form>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 </div>
