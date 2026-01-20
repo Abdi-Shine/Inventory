@@ -80,7 +80,7 @@
 
                                     <div class="text-center text-muted mb-4">
                                         <p class="mb-0">Already have an account ?<a class='text-primary ms-2 fw-medium'
-                                                href='{{route('login')}}'>Log in</a></p>
+                                                href="{{ route('login') }}">Log in</a></p>
                                     </div>
 
                                 </div>
