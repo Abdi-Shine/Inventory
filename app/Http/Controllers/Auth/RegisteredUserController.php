@@ -43,8 +43,11 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        // Manually send verification email since we removed MustVerifyEmail interface
+        $user->sendEmailVerificationNotification();
+
         // Auth::login($user);
 
-        return redirect(route('login'))->with('status', 'Registration successful! Please check your email to verify your account.');
+        return redirect(route('login'))->with('status', 'Registration successful! Activation email has been sent. You can now login.');
     }
 }
