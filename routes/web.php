@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,10 +31,8 @@ Route::get('admin/lock-screen', [AdminController::class, 'AdminLockScreen'])->na
 Route::post('admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 //end admin login
 
- //custom verification
+//course verification
 Route::get('/verify', [AdminController::class, 'Showverification'])->name('custom.verification.form');
-//email verification
-
 //custom verification verify
 Route::post('/verify', [AdminController::class, 'VerificationVerify'])->name('custom.verification.verify');
 //end custom verification

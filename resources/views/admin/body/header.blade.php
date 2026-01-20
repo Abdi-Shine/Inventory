@@ -116,7 +116,7 @@
                                     </a>
         
                                     <!-- item-->
-                                    <a href="{{ route('admin.lock_screen') }}" class="dropdown-item notify-item">
+                                    <a href="{{ route('admin.lock_screen')}}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-lock-outline fs-16 align-middle"></i>
                                         <span>Lock Screen</span>
                                     </a>
