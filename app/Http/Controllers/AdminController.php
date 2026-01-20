@@ -44,6 +44,12 @@ class AdminController extends Controller
         if (Auth::attempt($credentials)) {
             $user = auth()->user();
 
+            // Check if email is verified
+            if ($user->email_verified_at === null) {
+                auth()->logout();
+                return redirect()->route('verification.notice');
+            }
+
             if ($user->two_factor_enabled) {
                 $verificationcode = random_int(100000, 999999);
                 session(['verification_code' => $verificationcode, 'user_id' => $user->id]);
