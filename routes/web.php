@@ -11,6 +11,15 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth'])->name('dashboard');
 
+// Cache clearing routes
+Route::get('/clear-cache', function() {
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    return "Cache cleared successfully";
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
