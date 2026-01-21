@@ -77,9 +77,9 @@
                     <li class="menu-item-has-children">
                       <a class="no-border" href="#">Accounts</a>
                       <ul class="sub-menu">
-                        <li><a href="sign-up.html">Sign Up</a></li>
-                        <li><a href="sign-in.html">Sign In</a></li>
-                        <li><a href="reset-password.html">Reset Password</a></li>
+                        <li><a href="{{route('register')}}">Sign Up</a></li>
+                        <li><a href="{{route('login')}}">Sign In</a></li>
+                        <li><a href="{{route('password.request')}}">Reset Password</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -121,7 +121,7 @@
               </ul>
             </div>
           @endauth
-            <a class="lonyo-default-btn lonyo-header-btn" href="conact-us.html">Book a demo</a>
+            <a class="lonyo-default-btn lonyo-header-btn" href="{{ route('register') }}">Sign Up</a>
           </div>
           <div class="lonyo-header-menu">
             <nav class="navbar site-navbar justify-content-between">
