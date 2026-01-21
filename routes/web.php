@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ReviewController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -31,6 +32,9 @@ require __DIR__.'/auth.php';
 
 //admin logout
 Route::get('admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+Route::get('logout', function() {
+    return view('auth.logout');
+})->name('logout.success');
 //end admin logout
 
 //admin lock screen
@@ -59,4 +63,17 @@ Route::post('profile.store', [AdminController::class, 'AdminProfileStore'])->nam
 Route::middleware('auth')->group(function () {
 Route::post('admin/password/update', [AdminController::class, 'PasswordUpdate'])->name('admin.password.update');
 Route::post('admin/two-factor/update', [AdminController::class, 'TwoFactorUpdate'])->name('admin.two_factor.update');
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::controller(ReviewController::class)->group(function () {
+        Route::get('all/review', 'AllReview')->name('all_review');
+        Route::get('add/review', 'AddReview')->name('add_review');
+        Route::post('store/review', 'StoreReview')->name('store_review');
+        Route::get('edit/review/{id}', 'EditReview')->name('edit_review');
+        Route::post('update/review', 'UpdateReview')->name('update_review');
+        Route::get('delete/review/{id}', 'DeleteReview')->name('delete_review');
+    });
+
 });

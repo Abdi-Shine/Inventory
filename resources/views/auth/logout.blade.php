@@ -3,7 +3,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Sign Up Account Activation!| Registration Successful!</title>
+        <title>Logout | Tapeli - Responsive Admin Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc."/>
         <meta name="author" content="Zoyothemes"/>
@@ -33,24 +33,22 @@
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
 
                                     <div class="mb-4 p-0 text-center">
-                                        <a href="index.html" class="auth-logo">
-                                            <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo-dark" class="mx-auto" height="28" />
+                                        <a href="{{ url('/') }}" class="auth-logo">
+                                            <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo-dark" class="mx-auto" height="28"/>
                                         </a>
                                     </div>
-
-                                    <div class="auth-title-section mb-3 text-center mt-2">
-                                        <h3 class="text-dark fs-20 fw-medium mb-2">Your account has been created successfully.</h3>
-                                        <p class="text-muted fs-15">Please check your email and click the activation link to activate your account and log in. <br>Click link in email to verification your account</p>
+                                    
+                                    <div class="text-center auth-title-section">
+                                        <h3 class="text-dark fs-20 fw-medium mb-2">You are Logged Out</h3>
+                                        <p class="text-muted fs-15">Thank you for using Tapeli admin template</p>
                                     </div>
-
+                                
                                     <div class="text-center">
-                                        <a href="{{ route('login') }}" class="btn btn-primary mt-3 me-1" type="submit">Login</a>
+                                        <a href="{{ route('login') }}" class="btn btn-primary mt-3 me-1"> Log In </a>
                                     </div>
 
-                                    <div class="text-center pt-4">
-                                        <div class="maintenance-img">
-                                            <img src="{{ asset('backend/assets/images/svg/confirmation-email.svg') }}" height="200" alt="svg-logo">
-                                        </div>
+                                    <div class="maintenance-img text-center pt-4">
+                                        <img src="{{ asset('backend/assets/images/svg/logout.svg') }}" height="200" alt="svg-logo">
                                     </div>
 
                                 </div>
@@ -72,7 +70,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- END wrapper -->
 
         <!-- Vendor -->

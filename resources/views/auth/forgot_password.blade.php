@@ -3,7 +3,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Sign Up Account Activation!| Registration Successful!</title>
+        <title>Recover Password | Tapeli - Responsive Admin Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc."/>
         <meta name="author" content="Zoyothemes"/>
@@ -26,30 +26,44 @@
         <div class="account-page">
             <div class="container-fluid p-0">
                 <div class="row align-items-center g-0">
-
-                    <div class="col-md-5">
+                    <div class="col-xl-5">
                         <div class="row">
                             <div class="col-md-7 mx-auto">
                                 <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
-
-                                    <div class="mb-4 p-0 text-center">
+                                    <div class="mb-4 p-0">
                                         <a href="index.html" class="auth-logo">
                                             <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo-dark" class="mx-auto" height="28" />
                                         </a>
                                     </div>
+    
+                                    <div class="pt-0">
+                                        <!-- Session Status -->
+                                        @if (session('status'))
+                                            <div class="alert alert-success mb-4" role="alert">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif
 
-                                    <div class="auth-title-section mb-3 text-center mt-2">
-                                        <h3 class="text-dark fs-20 fw-medium mb-2">Your account has been created successfully.</h3>
-                                        <p class="text-muted fs-15">Please check your email and click the activation link to activate your account and log in. <br>Click link in email to verification your account</p>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <a href="{{ route('login') }}" class="btn btn-primary mt-3 me-1" type="submit">Login</a>
-                                    </div>
-
-                                    <div class="text-center pt-4">
-                                        <div class="maintenance-img">
-                                            <img src="{{ asset('backend/assets/images/svg/confirmation-email.svg') }}" height="200" alt="svg-logo">
+                                        <form  method="POST" action="{{ route('password.email') }}" class="my-4">
+                                            @csrf
+                                            <div class="form-group mb-3">
+                                                <label for="email" class="form-label">Email address</label>
+                                                <input class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" value="{{ old('email') }}" required="" placeholder="Enter your email">
+                                                @error('email')
+                                                    <span class="text-danger mt-1">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            
+                                            <div class="form-group mb-0 row">
+                                                <div class="col-12">
+                                                    <div class="d-grid">
+                                                        <button class="btn btn-primary" type="submit"> Recover Password </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="text-center text-muted">
+                                            <p class="mb-0">Change the mind  ?<a class='text-primary ms-2 fw-medium' href='{{ route('login') }}'>Back to Login</a></p>
                                         </div>
                                     </div>
 
@@ -72,7 +86,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- END wrapper -->
 
         <!-- Vendor -->
