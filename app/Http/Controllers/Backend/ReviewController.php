@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReviewController extends Controller
 {
@@ -36,7 +37,7 @@ class ReviewController extends Controller
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi').$file->getClientOriginalName();
-            
+
             $manager = new ImageManager(new Driver());
             $img = $manager->read($file);
             $img->resize(150,150)->save(public_path('upload/review/'.$filename));
@@ -121,5 +122,14 @@ class ReviewController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    public function ReviewDetailPdf($id){
+        try {
+            $review = Review::findOrFail($id);
+            return view('admin.backend.review.review_pdf', compact('review'));
+        } catch (\Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
     }
 }

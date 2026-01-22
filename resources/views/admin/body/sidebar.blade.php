@@ -38,7 +38,7 @@
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                                     <i data-feather="users"></i>
-                                    <span> Authentication </span>
+                                    <span> Review Setup </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarAuth">

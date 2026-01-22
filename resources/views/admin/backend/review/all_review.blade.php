@@ -22,24 +22,25 @@
                                 <th>Position</th>
                                 <th>Message</th>
                                 <th>Action</th>
-                            </tr>
+                           </tr>
                         </thead>
                         <tbody>
-                            @foreach($reviews as $key => $review)
-                            <tr>
-                                <td>{{ $key+1 }}</td>
-                                <td>{{ $review->name }}</td>
-                                <td>
-                                    <img src="{{ (!empty($review->image)) ? url($review->image) : url('upload/no_image.jpg') }}" alt="" style="width: 50px; height: 50px;">
-                                </td>
-                                <td>{{ $review->position }}</td>
-                                <td>{{ Str::limit($review->message, 50) }}</td>
-                                <td>
-                                    <a href="{{ route('edit_review', $review->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('delete_review', $review->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            @endforeach
+                        @foreach ($reviews as $key => $item)
+                           <tr>
+                             <td>{{ $key + 1 }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->position }}</td>
+                            <td>
+                                <img src="{{ asset($item->image) }}" style="width:70px; height:40px;">
+                            </td>
+                            <td>{{ Str::limit($item->message, 50, '...') }}</td>
+                            <td>
+                              <a href="{{ route('edit_review', $item->id) }}" class="btn btn-success btn-sm">Edit   </a>
+                              <a href="{{ route('delete_review', $item->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                              <a href="{{ route('review.details.pdf', $item->id) }}" class="btn btn-warning btn-sm" title="PDF Detail"><i class="fa fa-file-pdf"></i></a>
+                            </td>
+                          </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
