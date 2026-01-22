@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-use App\Models\Review;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Review;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Barryvdh\DomPDF\Facade\Pdf;

@@ -25,7 +25,7 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column no-print">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">Review Details</h4>
+                <h4 class="fs-18 fw-semibold m-0">preview slider </h4>
             </div>
         </div>
 
@@ -33,33 +33,33 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Review Information</h5>
-                        <button onclick="window.print()" class="btn btn-danger btn-sm"><i class="fa-solid fa-print"></i> Print Review / PDF</button>
+                        <h5 class="card-title mb-0">slider Information</h5>
+                        <button onclick="window.print()" class="btn btn-danger btn-sm"><i class="fa-solid fa-print"></i> Print slider / PDF</button>
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
-                            <div class="col-sm-3 fw-bold">Name:</div>
-                            <div class="col-sm-9">{{ $review->name }}</div>
+                            <div class="col-sm-3 fw-bold">title :</div>
+                            <div class="col-sm-9">{{ $slider->title }}</div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-sm-3 fw-bold">Position:</div>
-                            <div class="col-sm-9">{{ $review->position }}</div>
+                            <div class="col-sm-3 fw-bold">description:</div>
+                            <div class="col-sm-9">{{ $slider->description }}</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-3 fw-bold">Image:</div>
                             <div class="col-sm-9">
-                                <img src="{{ asset($review->image) }}" style="width:150px; height:150px; border-radius: 10px;">
+                                <img src="{{ asset($slider->image) }}" style="width:150px; height:150px; border-radius: 10px;">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-sm-3 fw-bold">Message:</div>
+                            <div class="col-sm-3 fw-bold">link:</div>
                             <div class="col-sm-9">
-                                <p style="white-space: pre-wrap;">{{ $review->message }}</p>
+                                <p style="white-space: pre-wrap;">{{ $slider->link }}</p>
                             </div>
                         </div>
                         <hr class="no-print">
                         <div class="text-end no-print back-to-list">
-                            <a href="{{ route('all_review') }}" class="btn btn-secondary">Back to List</a>
+                            <a href="{{ route('view_slider') }}" class="btn btn-secondary">Back to List</a>
                         </div>
                     </div>
                 </div>
