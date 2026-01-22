@@ -38,16 +38,13 @@
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                                     <i data-feather="users"></i>
-                                    <span> Authentication </span>
+                                    <span> Review Setup </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarAuth">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="{{route('all_review')}}" class="tp-link">All review</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('add_review')}}" class="tp-link">Add review</a>
+                                            <a href="{{route('all_review')}}" class="tp-link">Reviews</a>
                                         </li>
                                     </ul>
                                 </div>

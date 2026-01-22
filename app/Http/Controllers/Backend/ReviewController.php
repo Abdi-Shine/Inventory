@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReviewController extends Controller
 {
     public function AllReview(){
 
-      $reviews = Review::latest()->get();
+      $reviews = Review::oldest()->get();
        return view('admin.backend.review.all_review' , compact('reviews'));
 
     }
@@ -122,4 +123,11 @@ class ReviewController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+
+    public function ReviewDetails($id){
+        $review = Review::findOrFail($id);
+        return view('admin.backend.review.view_review', compact('review'));
+    }
+
 }
