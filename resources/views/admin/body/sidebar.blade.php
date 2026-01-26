@@ -35,20 +35,7 @@
                 
                             <li class="menu-title">Pages</li>
 
-                            <li>
-                                <a href="#sidebarAuth" data-bs-toggle="collapse">
-                                    <i data-feather="users"></i>
-                                    <span> Review Setup </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="sidebarAuth">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="{{route('all_review')}}" class="tp-link">Reviews</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+
 
                             <li>
                                 <a href="#sidebarError" data-bs-toggle="collapse">
