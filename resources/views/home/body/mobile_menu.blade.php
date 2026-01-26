@@ -3,7 +3,7 @@
       <div class="lonyo-menu-mobile-top">
         <div class="mobile-logo">
           <a href="index.html">
-            <img src="assets/images/logo/logo-dark.svg" alt="logo">
+            <img src="{{ asset('frontend/assets/images/logo/logo-dark.svg') }}" alt="logo">
           </a>
         </div>
         <button class="lonyo-menu-toggle mobile">
@@ -98,7 +98,7 @@
             </ul>
           </li>
           <li>
-            <a href="contact-us.html">Contact</a>
+            <a href="{{ route('login') }}">Login</a>
           </li>
         </ul>
       </div>

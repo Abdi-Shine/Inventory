@@ -68,16 +68,13 @@
                             <li>
                                 <a href="#sidebarExpages" data-bs-toggle="collapse">
                                     <i data-feather="file-text"></i>
-                                    <span> Utility </span>
+                                    <span> Feature Setup </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarExpages">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="pages-starter.html" class="tp-link">Starter</a>
-                                        </li>
-                                        <li>
-                                            <a href="pages-profile.html" class="tp-link">Profile</a>
+                                            <a href="{{route('view_feature')}}" class="tp-link">View Features</a>
                                         </li>
                                     </ul>
                                 </div>

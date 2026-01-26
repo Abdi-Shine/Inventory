@@ -37,8 +37,8 @@
                                     </td>
                                     <td>{{ Str::limit($item->message, 50, '...') }}</td>
                                     <td>
-                                        <a href="{{ route('edit_review', $item->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                        <a href="{{ route('delete_review', $item->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                        <a href="{{ route('edit_review', $item->id) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                        <a href="{{ route('delete_review', $item->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa-solid fa-trash"></i></a>
                                         <a href="{{ route('review.details', $item->id) }}" class="btn btn-warning btn-sm" title="View Detail"><i class="fa-solid fa-eye"></i></a>
                                     </td>
                                 </tr>

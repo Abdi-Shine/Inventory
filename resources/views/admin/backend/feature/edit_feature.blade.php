@@ -6,54 +6,53 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">Add Review</h4>
+                <h4 class="fs-18 fw-semibold m-0">Edit feature</h4>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Create New Slider</h5>
+                        <h5 class="card-title mb-0">Edit feature Information</h5>
                     </div><!-- end card header -->
 
                     <div class="card-body">
-                        <form id="myForm" action="{{ route('store_slider') }}" method="post" enctype="multipart/form-data">
+                        <form id="myForm" action="{{ route('update_feature')}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $feature->id }}">
+                            <input type="hidden" name="old_image" value="{{ $feature->image }}">
 
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">title </label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+                                        <label for="name" class="form-label">Title</label>
+                                        <input type="text" name="title" class="form-control" id="title" value="{{ $feature->title }}">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="position" class="form-label">description</label>
-                                        <input type="text" name="description" class="form-control" id="description" placeholder="Enter description">
+                                        <label for="position" class="form-label">Description</label>
+                                        <input type="text" name="description" class="form-control" id="description" value="{{ $feature->description }}">
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="image" class="form-label">slider photo</label>
-                                        <input type="file" name="image" class="form-control" id="image">
+                                        <label for="icon" class="form-label">Icon</label>
+                                        <input type="file" name="icon" class="form-control" id="icon">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="showImage" class="form-label"></label>
-                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Review Image" class="rounded-circle avatar-lg img-thumbnail">
+                                        <img id="showImage" src="{{ (!empty($feature->icon)) ? url($feature->icon) : url('upload/no_image.jpg') }}" alt="Feature Image" class="rounded-circle avatar-lg img-thumbnail">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save slider</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update Feature</button>
                                 </div>
                             </div>
                         </form>
@@ -65,7 +64,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#image').change(function(e){
+        $('#icon').change(function(e){
             var reader = new FileReader();
             reader.onload = function(e){
                 $('#showImage').attr('src', e.target.result);
@@ -75,3 +74,4 @@
     });
 </script>
 @endsection
+

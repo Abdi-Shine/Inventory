@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\FeaturesController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -67,19 +67,6 @@ Route::post('admin/two-factor/update', [AdminController::class, 'TwoFactorUpdate
 });
 
 Route::middleware('auth')->group(function () {
-// start review
-    Route::controller(ReviewController::class)->group(function () {
-        Route::get('all/review', 'AllReview')->name('all_review');
-        Route::get('add/review', 'AddReview')->name('add_review');
-        Route::post('store/review', 'StoreReview')->name('store_review');
-        Route::get('edit/review/{id}', 'EditReview')->name('edit_review');
-        Route::post('update/review', 'UpdateReview')->name('update_review');
-        Route::get('delete/review/{id}', 'DeleteReview')->name('delete_review');
-        Route::get('review/details/{id}', 'ReviewDetails')->name('review.details');
-    });
-
-//end review
-
 //start slider
     Route::controller(SliderController::class)->group(function () {
         Route::get('view/slider', 'ViewSlider')->name('view_slider');
@@ -89,8 +76,26 @@ Route::middleware('auth')->group(function () {
         Route::get('delete/slider/{id}', 'DeleteSlider')->name('delete_slider');
         Route::post('store/slider', 'StoreSlider')->name('store_slider');
         Route::get('preview/slider/{id}', 'PreviewSlider')->name('preview_slider');
+
+
+         Route::post('change-slider/{id}', 'ChangeSlider')->name('change_slider');
     });
 
 //end slider
+
+//start features
+     Route::controller(FeaturesController::class)->group(function () {
+        Route::get('view/feature', 'ViewFeature')->name('view_feature');
+        Route::get('edit/feature/{id}', 'EditFeature')->name('edit_feature');
+        Route::get('add/feature', 'AddFeature')->name('add_feature');
+        Route::post('update/feature', 'UpdateFeature')->name('update_feature');
+        Route::get('delete/feature/{id}', 'DeleteFeature')->name('delete_feature');
+        Route::post('store/feature', 'StoreFeature')->name('store_feature');
+        Route::get('preview/feature/{id}', 'PreviewFeature')->name('preview_feature');
+
+
+    });
+
+//end features     
 
 });

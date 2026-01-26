@@ -6,7 +6,7 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">Add Review</h4>
+                <h4 class="fs-18 fw-semibold m-0">Add Feature</h4>
             </div>
         </div>
 
@@ -14,11 +14,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Create New Slider</h5>
+                        <h5 class="card-title mb-0">Create New Feature</h5>
                     </div><!-- end card header -->
 
                     <div class="card-body">
-                        <form id="myForm" action="{{ route('store_slider') }}" method="post" enctype="multipart/form-data">
+                        <form id="myForm" action="{{ route('store_feature') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
@@ -29,31 +29,28 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <label for="position" class="form-label">description</label>
-                                        <input type="text" name="description" class="form-control" id="description" placeholder="Enter description">
+                                        <label for="message" class="form-label">description</label>
+                                        <textarea name="description" class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
                                     </div>
                                 </div>
-
-
-
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="image" class="form-label">slider photo</label>
-                                        <input type="file" name="image" class="form-control" id="image">
+                                        <label for="icon" class="form-label">icon</label>
+                                        <input type="file" name="icon" class="form-control" id="icon">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="showImage" class="form-label"></label>
-                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Review Image" class="rounded-circle avatar-lg img-thumbnail">
+                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="feature Image" class="rounded-circle avatar-lg img-thumbnail">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save slider</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save feature</button>
                                 </div>
                             </div>
                         </form>

@@ -37,12 +37,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">Link</label>
-                                        <textarea name="link" class="form-control" id="link" rows="3">{{ $slider->link }}</textarea>
-                                    </div>
-                                </div>
+
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">

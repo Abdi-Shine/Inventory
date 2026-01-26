@@ -31,21 +31,17 @@ class SliderController extends Controller
     }
     // end EditSlider
 
-
-
     // start StoreSlider
      public function StoreSlider(Request $request){
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'link' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = new Slider();
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->link = $request->link;
 
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -90,7 +86,6 @@ class SliderController extends Controller
             Slider::findOrFail($slider_id)->update([
                 'title' => $request->title,
                 'description' => $request->description,
-                'link' => $request->link,
                 'image' => $save_url,
             ]);
 
@@ -105,7 +100,6 @@ class SliderController extends Controller
             Slider::findOrFail($slider_id)->update([
                 'title' => $request->title,
                 'description' => $request->description,
-                'link' => $request->link,
             ]);
 
             $notification = array(
@@ -140,5 +134,19 @@ class SliderController extends Controller
         return view('admin.backend.slider.preview_slider', compact('slider'));
     }
     // end preview slider
+
+    // change slider
+    public function ChangeSlider(Request $request,$id){
+        $slider = Slider::findOrFail($id);
+         if ($request->  has('title')) {
+            $slider->title = $request->title;
+         }
+         if ($request->  has('description')) {
+            $slider->description = $request->description;
+         }
+        $slider->save();  
+        return response()->json(['success' => true]);
+    }
+    // end change slider
     
-}
+}   
