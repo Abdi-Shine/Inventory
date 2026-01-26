@@ -29,10 +29,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        @keyframes pulse {
+          0% { transform: scale(0.9); opacity: 0.7; }
+          50% { transform: scale(1.1); opacity: 1; }
+          100% { transform: scale(0.9); opacity: 0.7; }
+        }
+        .preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 99999;
+          transition: opacity 0.5s ease;
+        }
+    </style>
 </head>
 
     <!-- body start -->
 <body data-menu-color="light" data-sidebar="default">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-inner">
+       <img src="{{ asset('upload/Horntech_logo/horntech_icon.jpg') }}" alt="HornTech Loading" style="max-height: 100px; animation: pulse 1.5s infinite ease-in-out;">
+    </div>
+  </div>
 
 <!-- Begin page -->
 <div id="app-layout">
@@ -122,5 +150,10 @@
  }
  @endif 
 </script>
+ <script>
+    $(window).on('load', function() {
+        $('.preloader').delay(0).fadeOut('slow');
+    });
+ </script>
 </body>
 </html>
