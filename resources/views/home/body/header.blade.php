@@ -11,6 +11,22 @@
     border-top: 3px solid #99CC33 !important; 
 }
 
+/* Responsive Logo Styling */
+.header-logo1 img {
+    max-height: 80px;
+    transition: max-height 0.3s ease;
+}
+@media (max-width: 991px) {
+    .header-logo1 img {
+        max-height: 60px;
+    }
+}
+@media (max-width: 575px) {
+    .header-logo1 img {
+        max-height: 50px;
+    }
+}
+
 /* Language Switcher Styling */
 .lang-switcher {
     position: relative;
@@ -71,23 +87,36 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+/* Login Button Styling */
+.lonyo-header-btn {
+    background-color: #004161 !important;
+    border-color: #004161 !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+.lonyo-header-btn:hover {
+    background-color: #005580 !important;
+    border-color: #005580 !important;
+    color: #ffffff !important;
+}
 </style>
 
-<header class="site-header lonyo-header-section" id="sticky-menu">
+<header class="site-header lonyo-header-section" id="sticky-menu" style="background-color: #ffffff;">
     <!-- Top Bar -->
     <div class="header-top-section skiptranslate" style="background-color: #004161; color: #fff; padding: 10px 0;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8 d-flex align-items-center">
-                     <span class="me-4"><i class="fas fa-map-marker-alt me-2"></i> Maka Al-Mukarama Street - Hodan, Mogadishu, Somalia</span>
-                     <span><i class="fas fa-envelope me-2"></i> info@thehorntech.com</span>
+                <div class="col-lg-8 col-12 d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center mb-2 mb-lg-0" style="font-size: 14px; gap: 15px;">
+                     <span><a href="mailto:info@thehorntech.com" class="text-white"><i class="fas fa-envelope me-2"></i> info@thehorntech.com</a></span>
+                     <span><a href="tel:+252610777625" class="text-white"><i class="fas fa-mobile-alt me-2"></i> +252 610 777625</a></span>    
                 </div>
-                 <div class="col-lg-4 d-flex justify-content-end align-items-center">
-                     <div class="d-flex align-items-center border-end pe-3 me-3">
+                 <div class="col-lg-4 col-12 d-flex justify-content-center justify-content-lg-end align-items-center">
+                     <div class="d-flex align-items-center border-end-lg pe-lg-3 me-lg-3 mb-2 mb-lg-0">
                         <a href="https://www.facebook.com/horntechltd" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com" class="text-white me-3"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/horntech_ltd/" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/horntech_ltd/" class="text-white me-3 me-lg-0"><i class="fab fa-instagram"></i></a>
                      </div>
                      <!-- Language Switcher -->
                      <div class="lang-switcher" style="z-index: 1001;">
@@ -111,68 +140,71 @@
         </div>
     </div>
 
-
     <!-- Main Navigation -->
-    <div class="container mt-3">
-        <div class="row gx-3 align-items-center justify-content-between">
-            <div class="col-auto">
-                 <div class="header-logo1">
-                    <a href="{{ url('/') }}">
-                        <img src="https://thehorntech.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-12-at-10.26.22-AM.jpeg" alt="Logo" style="max-height: 80px;">
-                    </a>
-                 </div>
-            </div>
-            <div class="col">
-               <div class="lonyo-main-menu-item">
-                 <nav class="main-menu menu-style1 d-none d-lg-block menu-right">
-                    <ul>
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li class="menu-item-has-children"><a href="#">Services</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">UI/UX Design</a></li>
-                                <li><a href="#">Software Testing</a></li>
-                                <li><a href="#">Mobile Apps</a></li>
-                                <li><a href="#">Web Design</a></li>
-                                <li><a href="#">Custom Software</a></li>
-                                <li><a href="#">IT Consultancy</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children"><a href="#">Products</a>
-                             <ul class="sub-menu">
-                                <li><a href="#">University ERP</a></li>
-                                <li><a href="#">ECMIS</a></li>
-                                <li><a href="#">Inventory System</a></li>
-                                <li><a href="#">Biometric Attendance</a></li>
-                                <li><a href="#">Hospital Management</a></li>
-                                <li><a href="#">Notary Management</a></li>
-                             </ul>
-                        </li>
-                        <li class="menu-item-has-children"><a href="#">Digital Marketing</a>
-                             <ul class="sub-menu">
-                                <li><a href="#">Social Media</a></li>
-                                <li><a href="#">SEO</a></li>
-                                <li><a href="#">SMS & Email</a></li>
-                             </ul>
-                        </li>
-                         <li class="menu-item-has-children"><a href="#">Security</a>
-                             <ul class="sub-menu">
-                                <li><a href="#">CCTV Setup</a></li>
-                                <li><a href="#">Attendance Machine</a></li>
-                             </ul>
-                        </li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                    </ul>
-                 </nav>
-               </div>
-            </div>
-             <!-- Mobile Menu Toggle -->
-            <div class="col-auto d-lg-none">
-                  <button class="lonyo-menu-toggle"><span></span></button>
-            </div>
+    <div class="container">
+      <div class="row gx-3 align-items-center justify-content-between">
+        <div class="col-8 col-sm-auto ">
+          <div class="header-logo1 ">
+            <a href="index.html">
+              <img src="{{ asset('upload/Horntech_logo/White.jpg') }}" alt="logo">
+            </a>
+          </div>
         </div>
+        <div class="col">
+          <div class="lonyo-main-menu-item">
+            <nav class="main-menu menu-style1 d-none d-lg-block menu-left">
+              <ul>
+                <li>
+                  <a href="index.html">Home</a>
+                </li>
+                <li>
+                  <a href="about-us.html">About</a>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Services</a>
+                  <ul class="sub-menu">
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Products</a>
+                  <ul class="sub-menu">
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="single-blog.html">Blog Details</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="contact-us.html">Digital Marketing</a>
+                </li>
+                <li>
+                  <a href="contact-us.html">Contact</a>
+                </li>
+                <li>
+                  <a href="{{ route('login') }}">Login</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+          <div class="lonyo-header-info-wraper2">
+          </div>
+          <div class="lonyo-header-menu">
+            <nav class="navbar site-navbar justify-content-between">
+              <!-- Brand Logo-->
+              <!-- mobile menu trigger -->
+              <button class="lonyo-menu-toggle d-inline-block d-lg-none">
+                <span></span>
+              </button>
+              <!--/.Mobile Menu Hamburger Ends-->
+            </nav>
+          </div>
+        </div>
+      </div>
     </div>
-</header>
+
+  </header>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

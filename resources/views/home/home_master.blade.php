@@ -11,7 +11,7 @@
   <link rel="icon" href="{{ asset('upload/Horntech_logo/horntech_icon.jpg') }}" type="image/x-icon">
   <!--- End favicon-->
 
-  <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- End google font  -->
 
@@ -45,6 +45,27 @@
       0% { transform: scale(0.9); opacity: 0.7; }
       50% { transform: scale(1.1); opacity: 1; }
       100% { transform: scale(0.9); opacity: 0.7; }
+    }
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, input, textarea, label {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    .montserrat-branded-900 {
+      font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 900;
+      font-style: normal;
+    }
+    .montserrat-branded-700 {
+      font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+    }
+    .montserrat-branded-500 {
+      font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
     }
     .preloader {
       position: fixed;

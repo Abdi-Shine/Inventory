@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\FeaturesController;
+use App\Http\Controllers\Backend\FrontendController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -96,6 +97,12 @@ Route::middleware('auth')->group(function () {
 
     });
 
-//end features     
+//end features  
+
+// frontend routes
+    
+        Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');       
+
+
 
 });

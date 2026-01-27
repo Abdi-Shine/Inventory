@@ -1,6 +1,6 @@
 <style>
     .domain-search-section {
-        padding: 80px 0;
+        padding: 30px 0;
         background-color: #004161 !important;
         margin-top: -60px;
         transition: background-color 0.4s ease;
@@ -80,6 +80,30 @@
         color: #004161 !important;
         transform: scale(1.05);
     }
+    @media (max-width: 767px) {
+        .domain-search-section .title {
+            font-size: 24px;
+        }
+        .search-container {
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .search-icon {
+            margin-right: 0;
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        .search-input {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 5px 0;
+        }
+        .search-button {
+            width: 100%;
+            padding: 12px 0;
+        }
+    }
 </style>
 
 <section class="spacing-borders domain-search-section">
@@ -87,7 +111,6 @@
     <div class="justify-content-center text-center mb-4 row">
       <div class="col-xl-8 col-lg-12">
         <h2 class="fw-bold title">Your domain defines who you are!</h2>
-        <p class="subtitle">Discover a simple, memorable domain that fits your business perfectly.<br>Our experts are here to support you fully.</p>
       </div>
     </div>
     <div class="row">

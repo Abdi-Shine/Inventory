@@ -2,8 +2,8 @@
   .custom-footer {
     background-color: #004161; /* Updated brand dark blue */
     color: #fff;
-    padding: 80px 0 30px;
-    font-family: 'Outfit', sans-serif;
+    padding: 30px 0 15px;
+    font-family: 'Montserrat', sans-serif;
   }
   .custom-footer h4 {
     color: #fff;
@@ -63,7 +63,7 @@
     padding: 0;
   }
   .custom-footer-links li {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
   }
   .custom-footer-links a {
     color: #fff;
@@ -90,7 +90,7 @@
     gap: 15px;
     color: #fff;
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     line-height: 1.5;
   }
   .footer-contact-info i {
@@ -128,8 +128,8 @@
     color: #99CC33;
   }
   .footer-bottom {
-    margin-top: 60px;
-    padding-top: 25px;
+    margin-top: 25px;
+    padding-top: 15px;
     border-top: 1px solid rgba(255,255,255,0.05);
     text-align: center;
     color: #fff;
@@ -139,7 +139,7 @@
 
 <footer class="custom-footer">
   <div class="container">
-    <div class="row">
+    <div class="row text-center text-md-start">
       <!-- Column 1 -->
       <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
         <a href="{{ url('/') }}">
@@ -148,13 +148,13 @@
         <p class="custom-footer-tagline" style="color: #99CC33;">
           INNOVATIVE TECHNOLOGY<br>THROUGH SOLUTIONS
         </p>
-        <div class="footer-contact-btn-wrap">
+        <div class="footer-contact-btn-wrap justify-content-center justify-content-md-start">
           <a href="#" class="footer-contact-btn">CONTACT US</a>
           <div class="footer-arrow-circle">
             <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
           </div>
         </div>
-        <div class="footer-socials">
+        <div class="footer-socials justify-content-center justify-content-md-start">
           <span>Follow us on</span>
           <a href="https://www.facebook.com/horntechltd"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-x-twitter"></i></a>
@@ -191,15 +191,15 @@
       <div class="col-lg-3 col-md-6">
         <h4>Contact Us</h4>
         <ul class="footer-contact-info">
-          <li>
+          <li class="justify-content-center justify-content-md-start">
             <i class="fas fa-map-marker-alt"></i>
             <span>Maka Al-Mukarama Street - Hodan, Mogadishu, Somalia</span>
           </li>
-          <li>
+          <li class="justify-content-center justify-content-md-start">
             <i class="fab fa-whatsapp"></i>
             <span>+252 610 777625</span>
           </li>
-          <li>
+          <li class="justify-content-center justify-content-md-start">
             <i class="fas fa-envelope"></i>
             <span>info@thehorntech.com</span>
           </li>

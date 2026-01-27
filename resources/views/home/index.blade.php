@@ -7,7 +7,7 @@
   <!-- end slider -->
 
  <!-- features -->
-  @include('home.homelayout.features')
+  @include('home.homelayout.services')
   <!-- end features -->
   
   <!-- domain search -->
@@ -25,11 +25,5 @@
   <!-- testimonials -->
   @include('home.homelayout.testimonials')
   <!-- end testimonials -->
-
-
-
-
-
-
 
 @endsection

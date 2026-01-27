@@ -2,18 +2,47 @@
     $sliders = \App\Models\Slider::all(); 
 @endphp
 
+<style>
+    .hero-slider-item {
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: height 0.3s ease;
+    }
+    @media (max-width: 991px) {
+        .hero-slider-item {
+            height: 500px;
+        }
+    }
+    @media (max-width: 767px) {
+        .hero-slider-item {
+            height: 450px;
+            text-align: center !important;
+        }
+        .hero-slider-content {
+            text-align: center !important;
+        }
+    }
+    @media (max-width: 480px) {
+        .hero-slider-item {
+            height: 400px;
+        }
+    }
+</style>
+
 <div id="sliderCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" style="background-color: #0e2a47;">
     <!-- Carousel Inner -->
     <div class="carousel-inner">
         @foreach($sliders as $index => $slider)
-            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="height: 600px; background-image: url('{{ asset($slider->image) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div class="carousel-item {{ $index === 0 ? 'active' : '' }} hero-slider-item" style="background-image: url('{{ asset($slider->image) }}');">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
-                        <div class="col-md-6 col-12" style="text-align: left;">
-                            <h2 id="slider-title-{{ $slider->id }}" contenteditable="{{ auth()->check() ? 'true' : 'false' }}" data-id="{{ $slider->id }}" class="fw-semibold text-capitalize lh-base" style="font-family: Lato, sans-serif; font-size: clamp(24px, 4vw, 40px); font-weight: 700; color: white;">
+                        <div class="col-md-7 col-12 hero-slider-content">
+                            <h2 id="slider-title-{{ $slider->id }}" contenteditable="{{ auth()->check() ? 'true' : 'false' }}" data-id="{{ $slider->id }}" class="fw-semibold text-capitalize lh-base" style="font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; color: white; margin-bottom: 20px;">
                                 {{ $slider->title }}
                             </h2>
-                            <p id="slider-description-{{ $slider->id }}" contenteditable="{{ auth()->check() ? 'true' : 'false' }}" data-id="{{ $slider->id }}" class="fs-18 mb-4" style="color: white; font-size: clamp(14px, 2vw, 18px); line-height: clamp(24px, 3vw, 28px); font-family: Poppins, sans-serif;">
+                            <p id="slider-description-{{ $slider->id }}" contenteditable="{{ auth()->check() ? 'true' : 'false' }}" data-id="{{ $slider->id }}" class="mb-4" style="color: rgba(255,255,255,0.9); font-size: clamp(16px, 2.5vw, 20px); line-height: 1.5; font-family: 'Montserrat', sans-serif;">
                                 {{ $slider->description }}
                             </p>
                         </div>

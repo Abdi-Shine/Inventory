@@ -29,8 +29,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
+        body, h1, h2, h3, h4, h5, h6, p, a, li, button, input, textarea, label, span:not([class*="mdi-"]):not([data-feather]):not([class*="fa-"]) {
+            font-family: 'Montserrat', sans-serif !important;
+        }
         @keyframes pulse {
           0% { transform: scale(0.9); opacity: 0.7; }
           50% { transform: scale(1.1); opacity: 1; }

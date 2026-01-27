@@ -5,7 +5,7 @@
         padding: 80px 0;
         margin-bottom: 50px;
         color: #fff;
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
     }
@@ -74,7 +74,32 @@
     }
     @media (max-width: 991px) {
         .stat-divider { display: none; }
-        .stat-item { margin-bottom: 30px; }
+        .row { justify-content: center !important; }
+        .stat-item { 
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .stat-icon {
+            margin-bottom: 15px;
+            font-size: 45px;
+        }
+        .stat-number {
+            justify-content: center;
+            font-size: 35px;
+        }
+        .stat-content {
+            align-items: center;
+        }
+    }
+    @media (max-width: 767px) {
+         .stat-number {
+            font-size: 32px;
+        }
+        .stat-icon {
+            font-size: 40px;
+        }
     }
 </style>
 
