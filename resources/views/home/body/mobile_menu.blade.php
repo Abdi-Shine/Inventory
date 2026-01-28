@@ -38,7 +38,7 @@
             <a href="#">Services</a>
             <ul class="sub-menu">
               @foreach($services as $item)
-              <li><a href="{{ route('service.details', $item->slug) }}">{{ $item->title }}</a></li>
+              <li><a href="{{ $item->slug ? route('service.details', $item->slug) : '#' }}">{{ $item->title }}</a></li>
               @endforeach
             </ul>
           </li>
@@ -46,7 +46,7 @@
             <a href="#">Products</a>
             <ul class="sub-menu">
               @foreach($products as $item)
-              <li><a href="{{ route('product.details', $item->slug) }}">{{ $item->title }}</a></li>
+              <li><a href="{{ $item->slug ? route('product.details', $item->slug) : '#' }}">{{ $item->title }}</a></li>
               @endforeach
             </ul>
           </li>
