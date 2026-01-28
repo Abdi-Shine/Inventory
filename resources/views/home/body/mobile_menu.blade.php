@@ -18,7 +18,7 @@
     <div class="lonyo-menu-area text-center">
       <div class="lonyo-menu-mobile-top">
         <div class="mobile-logo">
-          <a href="index.html">
+          <a href="{{ url('/') }}">
             <img src="{{ asset('upload/Horntech_logo/White.jpg') }}" alt="logo" style="max-height: 60px;">
           </a>
         </div>
@@ -29,7 +29,7 @@
       <div class="lonyo-mobile-menu">
         <ul>
           <li>
-            <a href="index.html">Home</a>
+            <a href="{{ url('/') }}">Home</a>
           </li>
           <li>
             <a href="about-us.html">About</a>
@@ -37,15 +37,17 @@
           <li class="menu-item-has-children">
             <a href="#">Services</a>
             <ul class="sub-menu">
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="single-portfolio.html">Portfolio Details</a></li>
+              @foreach($services as $item)
+              <li><a href="{{ route('service.details', $item->slug) }}">{{ $item->title }}</a></li>
+              @endforeach
             </ul>
           </li>
           <li class="menu-item-has-children">
             <a href="#">Products</a>
             <ul class="sub-menu">
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="single-blog.html">Blog Details</a></li>
+              @foreach($products as $item)
+              <li><a href="{{ route('product.details', $item->slug) }}">{{ $item->title }}</a></li>
+              @endforeach
             </ul>
           </li>
           <li>

@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->text('subtitle')->nullable();
+            $table->string('title1')->nullable();
+            $table->string('description1')->nullable();
+            $table->string('title2')->nullable();
+            $table->string('title3')->nullable();
+            $table->string('description3')->nullable();
+            $table->string('title4')->nullable();
+            $table->string('description4')->nullable();
             $table->timestamps();
         });
     }

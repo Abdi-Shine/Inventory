@@ -33,7 +33,7 @@
                                 </a>
                             </li>
                 
-                            <li class="menu-title">Pages</li>
+                            <li class="menu-title">Frontend</li>
 
 
 
@@ -55,60 +55,59 @@
                             <li>
                                 <a href="#sidebarExpages" data-bs-toggle="collapse">
                                     <i data-feather="file-text"></i>
-                                    <span> Feature Setup </span>
+                                    <span> Title Setup </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarExpages">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="{{route('view_feature')}}" class="tp-link">View Features</a>
+                                            <a href="{{route('view_title')}}" class="tp-link">View Title</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="menu-title mt-2">General</li>
+                            <li class="menu-title mt-2">Contacts</li>
 
                             <li>
                                 <a href="#sidebarBaseui" data-bs-toggle="collapse">
                                     <i data-feather="package"></i>
-                                    <span> Components </span>
+                                    <span> Contact Messages </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarBaseui">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="ui-accordions.html" class="tp-link">Accordions</a>
-                                        </li>
-                                        <li>
-                                            <a href="ui-alerts.html" class="tp-link">Alerts</a>
+                                            <a href="{{route('view_answer')}}" class="tp-link">View Contact Messages</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-
-                            <li>
-                                <a href="widgets.html" class="tp-link">
-                                    <i data-feather="aperture"></i>
-                                    <span> Widgets </span>
-                                </a>
-                            </li>
-
                             <li>
                                 <a href="#sidebarAdvancedUI" data-bs-toggle="collapse">
                                     <i data-feather="cpu"></i>
-                                    <span> Extended UI </span>
+                                    <span> Our Services </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarAdvancedUI">
                                     <ul class="nav-second-level">
                                         <li>
-                                            <a href="extended-carousel.html" class="tp-link">Carousel</a>
-                                        </li>
-                                        <li>
-                                            <a href="extended-notifications.html" class="tp-link">Notifications</a>
+                                            <a href="{{route('all.service')}}" class="tp-link">View Services</a>
                                         </li>
                                     </ul>
                                 </div>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-shopping-bag-3-fill"></i>
+                                    <span>Products</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('all.product') }}">All Product</a></li>
+                                    <li><a href="{{ route('add.product') }}">Add Product</a></li>
+                                </ul>
                             </li>
 
                             <li>

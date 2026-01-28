@@ -1,8 +1,8 @@
 <style>
     .testimonials-section {
         background: #f8f9fa;
-        padding-top: 30px !important;
-        padding-bottom: 30px !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
     }
     @media (max-width: 991px) {
         .testimonials-section {
@@ -91,10 +91,13 @@
 <section class="testimonials-section position-relative">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="lonyo-section-title center">
-              <h2>Testimonials</h2>
-              <p>What Our Clients Say</p>
-          </div>
+            <div class="col-xl-12 col-lg-12">
+        <h4 class="fw-semibold text-capitalize lh-base text-center" style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 700; color: #004161 !important; margin-bottom: 20px;">
+            {{ optional($titles)->title4 }}
+            <br>
+            {{ optional($titles)->description4}}
+        </h4>
+      </div>
         </div>
 
         <div class="row testimonial-slider">

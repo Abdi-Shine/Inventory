@@ -156,10 +156,10 @@
         </div>
         <div class="footer-socials justify-content-center justify-content-md-start">
           <span>Follow us on</span>
-          <a href="https://www.facebook.com/horntechltd"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/horntechltd" target="_blank"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-x-twitter"></i></a>
           <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/horntech_ltd/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/horntech_ltd/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
 

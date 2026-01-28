@@ -4,12 +4,22 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Backend\FeaturesController;
+use App\Http\Controllers\Backend\TitlesController;
 use App\Http\Controllers\Backend\FrontendController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\ProductController;
 
 Route::get('/', function () {
-    return view('home.index');
+    $titles = \App\Models\Titles::first(); 
+    // dd($titles); // Uncomment to debug if needed 
+    return view('home.index', compact('titles'));
 });
+
+Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');
+Route::get('/contact', [FrontendController::class, 'ContactUs'])->name('contact.us');
+Route::post('/contact/message', [FrontendController::class, 'ContactMessage'])->name('contact.message');
+Route::get('/service/details/{slug}', [FrontendController::class, 'ServiceDetails'])->name('service.details');
+Route::get('/product/details/{slug}', [FrontendController::class, 'ProductDetails'])->name('product.details');
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -85,24 +95,48 @@ Route::middleware('auth')->group(function () {
 //end slider
 
 //start features
-     Route::controller(FeaturesController::class)->group(function () {
-        Route::get('view/feature', 'ViewFeature')->name('view_feature');
-        Route::get('edit/feature/{id}', 'EditFeature')->name('edit_feature');
-        Route::get('add/feature', 'AddFeature')->name('add_feature');
-        Route::post('update/feature', 'UpdateFeature')->name('update_feature');
-        Route::get('delete/feature/{id}', 'DeleteFeature')->name('delete_feature');
-        Route::post('store/feature', 'StoreFeature')->name('store_feature');
-        Route::get('preview/feature/{id}', 'PreviewFeature')->name('preview_feature');
+     Route::controller(TitlesController::class)->group(function () {
+        Route::get('view/title', 'ViewTitle')->name('view_title');
+        Route::get('edit/title/{id}', 'EditTitle')->name('edit_title');
+        Route::get('add/title', 'AddTitle')->name('add_title');
+        Route::post('update/title', 'UpdateTitle')->name('update_title');
+        Route::get('delete/title/{id}', 'DeleteTitle')->name('delete_title');
+        Route::post('store/title', 'StoreTitle')->name('store_title');
+        Route::get('preview/title/{id}', 'PreviewTitle')->name('preview_title');
 
 
     });
 
 //end features  
 
-// frontend routes
-    
-        Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');       
+//start answer Eamils 
+     Route::controller(FrontendController::class)->group(function () {
+        Route::get('view/answer', 'ViewAnswer')->name('view_answer');
+        Route::get('edit/answer/{id}', 'EditAnswer')->name('edit_answer');
+        Route::post('reply/message', 'ReplyMessage')->name('reply.message');
+        Route::get('delete/answer/{id}', 'DeleteAnswer')->name('delete_answer');
+    });
+//end answer Eamils 
 
+    // Service Routes 
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/all/service', 'AllService')->name('all.service');
+        Route::get('/add/service', 'AddService')->name('add.service');
+        Route::post('/store/service', 'StoreService')->name('store.service');
+        Route::get('/edit/service/{id}', 'EditService')->name('edit.service');
+        Route::post('/update/service', 'UpdateService')->name('update.service');
+        Route::get('/delete/service/{id}', 'DeleteService')->name('delete.service');
+    }); 
+    
+    // Product Routes 
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/all/product', 'AllProduct')->name('all.product');
+        Route::get('/add/product', 'AddProduct')->name('add.product');
+        Route::post('/store/product', 'StoreProduct')->name('store.product');
+        Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+        Route::post('/update/product', 'UpdateProduct')->name('update.product');
+        Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    }); 
 
 
 });

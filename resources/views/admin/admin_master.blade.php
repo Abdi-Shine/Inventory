@@ -159,5 +159,6 @@
         $('.preloader').delay(0).fadeOut('slow');
     });
  </script>
+ @yield('scripts')
 </body>
 </html>

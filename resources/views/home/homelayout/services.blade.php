@@ -12,9 +12,12 @@
 
 <div class="lonyo-section-padding2 position-relative">
     <div class="container">
-      <div class="lonyo-section-title center">
-        <h2>our services</h2>
-        <p>we deliver innovative solutions that drive growth and efficiency.</p>
+      <div class="col-xl-12 col-lg-12">
+        <h4 class="fw-semibold text-capitalize lh-base text-center" style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 700; color: #004161 !important; margin-bottom: 20px;">
+            {{ optional($titles)->title1 }}
+            <br>
+            {{ optional($titles)->description1 }}
+        </h4>
       </div>
       <div class="row g-4">
         <div class="col-xl-4 col-lg-6 col-md-6 col-12">

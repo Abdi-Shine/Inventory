@@ -109,8 +109,10 @@
 <section class="spacing-borders domain-search-section">
   <div class="container">
     <div class="justify-content-center text-center mb-4 row">
-      <div class="col-xl-8 col-lg-12">
-        <h2 class="fw-bold title">Your domain defines who you are!</h2>
+      <div class="col-xl-12 col-lg-12">
+        <h4 class="fw-semibold text-capitalize lh-base" style="font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; color: white !important; margin-bottom: 20px;">
+            {{ optional($titles)->title2 }}
+        </h4>
       </div>
     </div>
     <div class="row">

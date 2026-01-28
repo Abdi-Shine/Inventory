@@ -113,10 +113,10 @@
                 </div>
                  <div class="col-lg-4 col-12 d-flex justify-content-center justify-content-lg-end align-items-center">
                      <div class="d-flex align-items-center border-end-lg pe-lg-3 me-lg-3 mb-2 mb-lg-0">
-                        <a href="https://www.facebook.com/horntechltd" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/horntechltd" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com" class="text-white me-3"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/horntech_ltd/" class="text-white me-3 me-lg-0"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/horntech_ltd/" target="_blank" class="text-white me-3 me-lg-0"><i class="fab fa-instagram"></i></a>
                      </div>
                      <!-- Language Switcher -->
                      <div class="lang-switcher" style="z-index: 1001;">
@@ -145,7 +145,7 @@
       <div class="row gx-3 align-items-center justify-content-between">
         <div class="col-8 col-sm-auto ">
           <div class="header-logo1 ">
-            <a href="index.html">
+            <a href="{{ url('/') }}">
               <img src="{{ asset('upload/Horntech_logo/White.jpg') }}" alt="logo">
             </a>
           </div>
@@ -155,30 +155,32 @@
             <nav class="main-menu menu-style1 d-none d-lg-block menu-left">
               <ul>
                 <li>
-                  <a href="index.html">Home</a>
+                  <a href="{{ url('/') }}">Home</a>
                 </li>
                 <li>
-                  <a href="about-us.html">About</a>
+                  <a href="{{ route('about.us') }}">About</a>
                 </li>
                 <li class="menu-item-has-children">
                   <a href="#">Services</a>
                   <ul class="sub-menu">
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
+                    @foreach($services as $item)
+                    <li><a href="{{ route('service.details', $item->slug) }}">{{ $item->title }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
                 <li class="menu-item-has-children">
                   <a href="#">Products</a>
                   <ul class="sub-menu">
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="single-blog.html">Blog Details</a></li>
+                    @foreach($products as $item)
+                    <li><a href="{{ route('product.details', $item->slug) }}">{{ $item->title }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
                 <li>
-                  <a href="contact-us.html">Digital Marketing</a>
+                  <a href="{{ route('contact.us') }}">Digital Marketing</a>
                 </li>
                 <li>
-                  <a href="contact-us.html">Contact</a>
+                  <a href="{{ route('contact.us')}}">Contact</a>
                 </li>
                 <li>
                   <a href="{{ route('login') }}">Login</a>

@@ -21,5 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+        
+        view()->composer('*',function($view){
+            $view->with('services', \App\Models\Service::orderBy('title','ASC')->get());
+            $view->with('products', \App\Models\Product::orderBy('title','ASC')->get());
+        });
     }
 }
