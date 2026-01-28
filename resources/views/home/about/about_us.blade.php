@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="lonyo-about-us-thumb2 pr-51" data-aos="fade-up" data-aos-duration="700">
-            <img src="{{ asset('frontend/assets') }}/images/about-us/img7.png" alt="">
+            <img src="{{ asset('frontend/assets') }}/images/about-us/img7.png" alt="" style="width: 100%; height: auto;">
           </div>
         </div>
         <div class="col-lg-7 d-flex align-items-center">

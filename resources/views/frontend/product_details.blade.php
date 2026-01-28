@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="lonyo-content-thumb2" data-aos="fade-right" data-aos-duration="700">
-            <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" style="width: 526px; height: 550px; object-fit: cover; border-radius: 10px;">
+            <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" style="width: 100%; max-width: 526px; height: 550px; object-fit: cover; border-radius: 10px;">
           </div>
         </div>
         <div class="col-lg-7 d-flex align-items-center">
