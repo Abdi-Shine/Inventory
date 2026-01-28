@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*',function($view){
             $view->with('services', \App\Models\Service::orderBy('title','ASC')->get());
             $view->with('products', \App\Models\Product::orderBy('title','ASC')->get());
+            $view->with('titles', \App\Models\Titles::first());
         });
     }
 }
