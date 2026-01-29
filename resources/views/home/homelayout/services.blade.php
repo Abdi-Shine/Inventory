@@ -8,6 +8,31 @@
             font-size: 30px !important;
         }
     }
+    
+    /* Hover Effects for Service Cards */
+    .lonyo-service-wrap {
+        transition: all 0.4s ease-in-out;
+        border: 1px solid transparent; /* seamless transition */
+    }
+
+    .lonyo-service-wrap:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+        background-color: #004161 !important;
+        border-color: #004161 !important;
+        color: #fff !important;
+    }
+
+    .lonyo-service-wrap:hover h4,
+    .lonyo-service-wrap:hover p {
+        color: #fff !important;
+    }
+
+    .lonyo-service-wrap:hover i {
+        color: #fff !important; 
+        transition: all 0.3s ease;
+        transform: scale(1.1);
+    }
 </style>
 
 <div class="lonyo-section-padding2 position-relative">
@@ -20,72 +45,23 @@
         </h4>
       </div>
       <div class="row g-4">
+        @foreach($features as $item)
         <div class="col-xl-4 col-lg-6 col-md-6 col-12">
           <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="500">
             <div class="lonyo-service-title">
-              <h4>Expense Tracking</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature1.svg') }}" alt="">
+              <h4>{{ $item->title }}</h4>
+               <i class="{{ $item->icon }}" style="
+                   color: #004161; 
+                   font-size: 50px; 
+                   margin-bottom: 20px;">
+               </i>
             </div>
             <div class="lonyo-service-data">
-              <p>Allows users to record and categorize daily transactions such as income, expenses, bills, and savings.</p>
+              <p>{{ $item->description }}</p>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="700">
-            <div class="lonyo-service-title">
-              <h4>Budgeting Tools</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature2.svg') }}" alt="">
-            </div>
-            <div class="lonyo-service-data">
-              <p>Provides visual insights like graphs or pie charts to show how much is spent versus the budgeted amount.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="900">
-            <div class="lonyo-service-title">
-              <h4>Investment Tracking</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature3.svg') }}" alt="">
-            </div>
-            <div class="lonyo-service-data">
-              <p>For users interested in investing, finance apps often provide tools to track stocks, bonds or mutual funds.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="500">
-            <div class="lonyo-service-title">
-              <h4>Tax Management</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature4.svg') }}" alt="">
-            </div>
-            <div class="lonyo-service-data">
-              <p>This tool integrate with tax software to help users prepare for tax season, deduct expenses, and file returns.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="700">
-            <div class="lonyo-service-title">
-              <h4>Bill Management</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature5.svg') }}" alt="">
-            </div>
-            <div class="lonyo-service-data">
-              <p>Tracks upcoming bills, sets reminders for due dates, and enables easy payments via integration with online banking</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="900">
-            <div class="lonyo-service-title">
-              <h4>Security Features</h4>
-              <img src="{{ asset('frontend/assets/images/v1/feature6.svg') }}" alt="">
-            </div>
-            <div class="lonyo-service-data">
-              <p>Provides bank-level encryption to ensure user data and financial information remain safe, MFA and biometric logins.</p>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
     <div class="lonyo-feature-shape"></div>

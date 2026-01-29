@@ -11,7 +11,7 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">All Titles</h5>
                         <div>
-                            <a href="{{ route('add_title') }}" class="btn btn-primary btn-sm">Add Title</a>
+                            <a href="{{ route('add.title') }}" class="btn btn-primary btn-sm">Add Title</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -27,17 +27,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($titles as $key => $item)
+                                @foreach ($allTitlesData as $key => $titleRecord)
                                     <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $item->title1 ?? 'N/A' }}</td>
-                                        <td>{{ $item->title2 ?? 'N/A' }}</td>
-                                        <td>{{ $item->title3 ?? 'N/A' }}</td>
-                                        <td>{{ $item->title4 ?? 'N/A' }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $titleRecord->title1 ?? 'N/A' }}</td>
+                                        <td>{{ $titleRecord->title2 ?? 'N/A' }}</td>
+                                        <td>{{ $titleRecord->title3 ?? 'N/A' }}</td>
+                                        <td>{{ $titleRecord->title4 ?? 'N/A' }}</td>
                                         <td>
-                                            <a href="{{ route('edit_title', $item->id) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                                            <a href="{{ route('delete_title', $item->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa-solid fa-trash"></i></a>
-                                            <a href="{{ route('preview_title', $item->id) }}" class="btn btn-warning btn-sm" title="View Detail"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="{{ route('edit.title', $titleRecord->id) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                            <a href="{{ route('delete.title', $titleRecord->id) }}" class="btn btn-danger btn-sm" id="delete" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                            <a href="{{ route('preview.title', $titleRecord->id) }}" class="btn btn-warning btn-sm" title="View Detail"><i class="fa-solid fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

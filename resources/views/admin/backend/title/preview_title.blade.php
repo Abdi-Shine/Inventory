@@ -14,8 +14,8 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">View Title Information</h5>
                         <div>
-                            <a href="{{ route('edit_title', $title->id) }}" class="btn btn-success btn-sm">Edit</a>
-                            <a href="{{ route('view_title') }}" class="btn btn-secondary btn-sm">Back to List</a>
+                            <a href="{{ route('edit.title', $title->id) }}" class="btn btn-success btn-sm">Edit</a>
+                            <a href="{{ route('view.title') }}" class="btn btn-secondary btn-sm">Back to List</a>
                         </div>
                     </div>
                     <div class="card-body">

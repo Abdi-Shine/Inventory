@@ -115,7 +115,7 @@
                      <div class="d-flex align-items-center border-end-lg pe-lg-3 me-lg-3 mb-2 mb-lg-0">
                         <a href="https://www.facebook.com/horntechltd" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/" target="_blank" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/horntech_ltd/" target="_blank" class="text-white me-3 me-lg-0"><i class="fab fa-instagram"></i></a>
                      </div>
                      <!-- Language Switcher -->
@@ -177,7 +177,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="{{ route('contact.us') }}">Digital Marketing</a>
+                  <a href="{{ route('digital.marketing') }}">Digital Marketing</a>
                 </li>
                 <li>
                   <a href="{{ route('contact.us')}}">Contact</a>

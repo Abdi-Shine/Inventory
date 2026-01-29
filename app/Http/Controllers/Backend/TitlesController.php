@@ -11,8 +11,8 @@ class TitlesController extends Controller
     // View all titles
     public function ViewTitle()
     {
-        $titles = Titles::oldest()->get();
-        return view('admin.backend.title.view_title', compact('titles'));
+        $allTitlesData = Titles::orderBy('id','asc')->get();
+        return view('admin.backend.title.view_title', compact('allTitlesData'));
     } 
 
     // Show add title form
@@ -39,7 +39,7 @@ class TitlesController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('view_title')->with($notification);
+        return redirect()->route('view.title')->with($notification);
     }
     
     // Show edit title form
@@ -69,7 +69,7 @@ class TitlesController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('view_title')->with($notification);
+        return redirect()->route('view.title')->with($notification);
     }
     
     // Delete title

@@ -107,93 +107,27 @@
     <div class="container">
         <div class="row justify-content-between align-items-center text-center">
             
-            <!-- Happy Clients -->
+            @foreach($stats as $key => $item)
             <div class="col-lg-auto col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
                 <div class="stat-item">
                     <div class="stat-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="{{ $item->icon }}"></i>
                     </div>
                     <div class="stat-content">
                         <div class="stat-number">
-                            <span class="counter" data-target="1700">0</span>
+                            <span class="counter" data-target="{{ $item->count }}">0</span>
                             <span class="stat-plus">+</span>
                         </div>
-                        <span class="stat-label">Happy Clients</span>
+                        <span class="stat-label">{{ $item->title }}</span>
                     </div>
                 </div>
             </div>
 
-            <div class="stat-divider d-none d-lg-block"></div>
+            @if(!$loop->last)
+             <div class="stat-divider d-none d-lg-block"></div>
+            @endif
 
-            <!-- Projects Completed -->
-            <div class="col-lg-auto col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">
-                            <span class="counter" data-target="2300">0</span>
-                            <span class="stat-plus">+</span>
-                        </div>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stat-divider d-none d-lg-block"></div>
-
-            <!-- Professional Staff -->
-            <div class="col-lg-auto col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">
-                            <span class="counter" data-target="700">0</span>
-                            <span class="stat-plus">+</span>
-                        </div>
-                        <span class="stat-label">Professional Staff</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stat-divider d-none d-lg-block"></div>
-
-            <!-- Year Experienced -->
-            <div class="col-lg-auto col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">
-                            <span class="counter" data-target="15">0</span>
-                            <span class="stat-plus">+</span>
-                        </div>
-                        <span class="stat-label">Year Experienced</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stat-divider d-none d-lg-block"></div>
-
-            <!-- Countries -->
-            <div class="col-lg-auto col-md-6 col-sm-6 col-12 mb-4 mb-lg-0">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-globe-africa"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">
-                            <span class="counter" data-target="7">0</span>
-                            <span class="stat-plus">+</span>
-                        </div>
-                        <span class="stat-label">Countries</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

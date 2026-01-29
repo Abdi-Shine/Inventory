@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Service;
 use App\Models\Product;
+use App\Models\About;
+use App\Models\MultiImage;
 
 class FrontendController extends Controller
 {
     public function AboutUs()
     {
-        return view('home.about.about_us');
+        $about = About::find(1);
+        $multiImage = MultiImage::all();
+        return view('home.about.about_us',compact('about','multiImage'));
     }
 
     public function ServiceDetails($slug){

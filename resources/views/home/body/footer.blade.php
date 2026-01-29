@@ -158,7 +158,7 @@
           <span>Follow us on</span>
           <a href="https://www.facebook.com/horntechltd" target="_blank"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/company/horntech-solutions-and-consultancy/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/horntech_ltd/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
@@ -168,10 +168,10 @@
         <h4>Quick Links</h4>
         <ul class="custom-footer-links">
           <li><a href="{{ url('/') }}"><span>»</span> Home</a></li>
-          <li><a href="#"><span>»</span> About Us</a></li>
-          <li><a href="#"><span>»</span> Services</a></li>
-          <li><a href="#"><span>»</span> Products</a></li>
-          <li><a href="#"><span>»</span> Contact Us</a></li>
+          <li><a href="{{ route('about.us') }}"><span>»</span> About Us</a></li>
+          <li><a href="#services"><span>»</span> Services</a></li>
+          <li><a href="#products"><span>»</span> Products</a></li>
+          <li><a href="{{ route('contact.us') }}"><span>»</span> Contact Us</a></li>
         </ul>
       </div>
 
@@ -179,11 +179,9 @@
       <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
         <h4>Our Services</h4>
         <ul class="custom-footer-links">
-          <li><a href="#"><span>»</span> Custom Software</a></li>
-          <li><a href="#"><span>»</span> Mobile App Dev</a></li>
-          <li><a href="#"><span>»</span> Web Design</a></li>
-          <li><a href="#"><span>»</span> IT Consultancy</a></li>
-          <li><a href="#"><span>»</span> Digital Marketing</a></li>
+            @foreach($services->take(5) as $item)
+          <li><a href="{{ route('service.details', $item->slug) }}"><span>»</span> {{ $item->title }}</a></li>
+          @endforeach
         </ul>
       </div>
 

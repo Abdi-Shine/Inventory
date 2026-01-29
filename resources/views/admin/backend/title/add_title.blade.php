@@ -15,7 +15,7 @@
                         <h5 class="card-title mb-0">Title Information</h5>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store_title') }}">
+                        <form method="POST" action="{{ route('store.title') }}">
                             @csrf
 
                             <div class="row">
@@ -97,7 +97,7 @@
                             </div>
 
                             <div class="text-end">
-                                <a href="{{ route('view_title') }}" class="btn btn-secondary">Cancel</a>
+                                <a href="{{ route('view.title') }}" class="btn btn-secondary">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Save Title</button>
                             </div>
                         </form>

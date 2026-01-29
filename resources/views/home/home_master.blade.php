@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/magnific-popup.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/slick.css')}}">
-  <link rel="stylesheet" href="{{asset('frontend/assets/css/fontawesome.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{asset('frontend/assets/css/remixicon.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/aos.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/niceselect.css')}}">
@@ -238,6 +238,30 @@
     #sticky-menu {
         z-index: 9999 !important;
     }
+    /* GLOBAL FIX: Remove Blue Animation/Shapes from Breadcrumbs on ALL pages */
+      .breadcrumb-wrapper, 
+      .breadcrumb-content,
+      .breadcrumb-menu-wrapper,
+      .breadcrumb-menu-wrap,
+      .breadcrumb-wrapper * {
+          background: #ffffff !important;
+          background-image: none !important;
+          box-shadow: none !important;
+          border: none !important;
+      }
+      .breadcrumb-wrapper::before, .breadcrumb-wrapper::after,
+      .breadcrumb-content::before, .breadcrumb-content::after,
+      .container::before, .container::after,
+      .breadcrumb-wrapper *:before,
+      .breadcrumb-wrapper *:after {
+          display: none !important;
+          content: none !important;
+          background: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          width: 0 !important;
+          height: 0 !important;
+      }
   </style>
 </body>
 </html>

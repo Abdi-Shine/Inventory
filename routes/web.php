@@ -5,14 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TitlesController;
+use App\Http\Controllers\Backend\DigitalMarketingController;
+use App\Http\Controllers\Backend\FeatureController;
+use App\Http\Controllers\Backend\ClientController;
+use App\Http\Controllers\Backend\StatController;
 use App\Http\Controllers\Backend\FrontendController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\AboutController;
 
 Route::get('/', function () {
     $titles = \App\Models\Titles::first(); 
-    // dd($titles); // Uncomment to debug if needed 
-    return view('home.index', compact('titles'));
+    $features = \App\Models\Feature::latest()->get();
+    $clients = \App\Models\Client::latest()->get();
+    $stats = \App\Models\Stat::latest()->get();
+    return view('home.index', compact('titles','features','clients','stats'));
 });
 
 Route::get('/about', [FrontendController::class, 'AboutUs'])->name('about.us');
@@ -96,15 +103,13 @@ Route::middleware('auth')->group(function () {
 
 //start features
      Route::controller(TitlesController::class)->group(function () {
-        Route::get('view/title', 'ViewTitle')->name('view_title');
-        Route::get('edit/title/{id}', 'EditTitle')->name('edit_title');
-        Route::get('add/title', 'AddTitle')->name('add_title');
-        Route::post('update/title', 'UpdateTitle')->name('update_title');
-        Route::get('delete/title/{id}', 'DeleteTitle')->name('delete_title');
-        Route::post('store/title', 'StoreTitle')->name('store_title');
-        Route::get('preview/title/{id}', 'PreviewTitle')->name('preview_title');
-
-
+        Route::get('view/title', 'ViewTitle')->name('view.title');
+        Route::get('edit/title/{id}', 'EditTitle')->name('edit.title');
+        Route::get('add/title', 'AddTitle')->name('add.title');
+        Route::post('update/title', 'UpdateTitle')->name('update.title');
+        Route::get('delete/title/{id}', 'DeleteTitle')->name('delete.title');
+        Route::post('store/title', 'StoreTitle')->name('store.title');
+        Route::get('preview/title/{id}', 'PreviewTitle')->name('preview.title');
     });
 
 //end features  
@@ -136,7 +141,55 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
         Route::post('/update/product', 'UpdateProduct')->name('update.product');
         Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+// Digital Marketing Routes
+Route::controller(DigitalMarketingController::class)->group(function () {
+    Route::get('/digital/marketing', 'DigitalMarketingPage')->name('digital.marketing');
+    Route::get('/edit/digital/marketing', 'EditDigitalMarketing')->name('edit.digital.marketing');
+    Route::post('/update/digital/marketing', 'UpdateDigitalMarketing')->name('update.digital.marketing');
+});
+
+ // Features Routes
+ Route::controller(FeatureController::class)->group(function(){
+    Route::get('/all/features', 'AllFeatures')->name('all.features');
+    Route::get('/add/features', 'AddFeatures')->name('add.features');
+    Route::post('/store/features', 'StoreFeatures')->name('store.features');
+    Route::get('/edit/features/{id}', 'EditFeatures')->name('edit.features');
+    Route::post('/update/features', 'UpdateFeatures')->name('update.features');
+    Route::get('/delete/features/{id}', 'DeleteFeatures')->name('delete.features');
+});
+
+// Client All Route 
+Route::controller(ClientController::class)->group(function() {
+    Route::get('/all/clients', 'AllClients')->name('all.clients');
+    Route::get('/add/clients', 'AddClients')->name('add.clients');
+    Route::post('/store/clients', 'StoreClients')->name('store.clients');
+    Route::get('/edit/clients/{id}', 'EditClients')->name('edit.clients');
+    Route::post('/update/clients', 'UpdateClients')->name('update.clients');
+    Route::get('/delete/clients/{id}', 'DeleteClients')->name('delete.clients');
+});
+
+// Stat All Route 
+Route::controller(StatController::class)->group(function() {
+    Route::get('/all/stats', 'AllStats')->name('all.stats');
+    Route::get('/add/stat', 'AddStat')->name('add.stat');
+    Route::post('/store/stat', 'StoreStat')->name('store.stat');
+    Route::get('/edit/stat/{id}', 'EditStat')->name('edit.stat');
+    Route::post('/update/stat', 'UpdateStat')->name('update.stat');
+    Route::get('/delete/stat/{id}', 'DeleteStat')->name('delete.stat');
+});
+
+// About Page All Routes
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/view/about', 'AboutPage')->name('view_about');
+    Route::get('/edit/about', 'EditAboutPage')->name('edit.about.page');
+    Route::post('/update/about', 'UpdateAbout')->name('update.about');
+    Route::get('/about/multi/image', 'AboutMultiImage')->name('about.multi.image');
+    Route::get('/add/multi/image', 'AddMultiImage')->name('add.multi.image');
+    Route::post('/store/multi/image', 'StoreMultiImage')->name('store.multi.image');
+    Route::get('/edit/multi/image/{id}', 'EditMultiImage')->name('edit.multi.image');
+    Route::post('/update/multi/image', 'UpdateMultiImage')->name('update.multi.image');
+    Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
+});
+
     }); 
-
-
 });

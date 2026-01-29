@@ -101,62 +101,25 @@
         </div>
 
         <div class="row testimonial-slider">
-            <!-- Testimonial 1 -->
+            @foreach($clients as $item)
             <div class="col-lg-4 px-2 px-md-3 testimonial-wrapper-col">
                 <div class="testimonial-item">
                     <div class="client-info d-flex align-items-center mb-4">
                         <div class="client-img mr-3" style="width: 70px; height: 70px; border-radius: 50%; overflow: hidden; border: 2px solid #f0f0f0; flex-shrink: 0;">
-                            <img src="https://thehorntech.com/wp-content/uploads/2024/10/MOLSA.jpeg" alt="MOLSA" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div style="margin-left: 15px;">
-                            <h5 style="margin: 0; color: #004161; font-weight: 700; transition: color 0.3s ease;">MOLSA</h5>
-                            <small style="color: #99CC33; font-weight: 600; transition: color 0.3s ease;">Government Agency</small>
+                            <h5 style="margin: 0; color: #004161; font-weight: 700; transition: color 0.3s ease;">{{ $item->title }}</h5>
+                            <small style="color: #99CC33; font-weight: 600; transition: color 0.3s ease;">Client</small>
                         </div>
                     </div>
                     <div class="quote-content position-relative">
                         <i class="fas fa-quote-left" style="color: #99CC33; font-size: 24px; opacity: 0.2; position: absolute; top: -10px; left: -5px; transition: color 0.3s ease;"></i>
-                        <p style="color: #555; font-style: italic; line-height: 1.7; margin-bottom: 0; padding-left: 15px; transition: color 0.3s ease;">"The custom PFM system by Horntech Ltd greatly improved our management efficiency"</p>
+                        <p style="color: #555; font-style: italic; line-height: 1.7; margin-bottom: 0; padding-left: 15px; transition: color 0.3s ease;">"{{ $item->description }}"</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Testimonial 2 -->
-            <div class="col-lg-4 px-2 px-md-3 testimonial-wrapper-col">
-                <div class="testimonial-item" style="border-bottom-color: #004161;">
-                    <div class="client-info d-flex align-items-center mb-4">
-                        <div class="client-img mr-3" style="width: 70px; height: 70px; border-radius: 50%; overflow: hidden; border: 2px solid #f0f0f0; flex-shrink: 0;">
-                            <img src="https://thehorntech.com/wp-content/uploads/2024/11/logo-muriidi.jpg" alt="Muriidi" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="margin-left: 15px;">
-                            <h5 style="margin: 0; color: #004161; font-weight: 700; transition: color 0.3s ease;">Muriidi</h5>
-                            <small style="color: #99CC33; font-weight: 600; transition: color 0.3s ease;">Notary Services</small>
-                        </div>
-                    </div>
-                    <div class="quote-content position-relative">
-                        <i class="fas fa-quote-left" style="color: #99CC33; font-size: 24px; opacity: 0.2; position: absolute; top: -10px; left: -5px; transition: color 0.3s ease;"></i>
-                        <p style="color: #555; font-style: italic; line-height: 1.7; margin-bottom: 0; padding-left: 15px; transition: color 0.3s ease;">"Horntech Ltd created a reliable notary system tailored to our needs. Your service were outstanding."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="col-lg-4 px-2 px-md-3 testimonial-wrapper-col">
-                <div class="testimonial-item">
-                    <div class="client-info d-flex align-items-center mb-4">
-                        <div class="client-img mr-3" style="width: 70px; height: 70px; border-radius: 50%; overflow: hidden; border: 2px solid #f0f0f0; flex-shrink: 0;">
-                            <img src="https://thehorntech.com/wp-content/uploads/2024/10/apple-touch-icon.png" alt="ICT Client" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="margin-left: 15px;">
-                            <h5 style="margin: 0; color: #004161; font-weight: 700; transition: color 0.3s ease;">Horntech Client</h5>
-                            <small style="color: #99CC33; font-weight: 600; transition: color 0.3s ease;">Tech Partner</small>
-                        </div>
-                    </div>
-                    <div class="quote-content position-relative">
-                        <i class="fas fa-quote-left" style="color: #99CC33; font-size: 24px; opacity: 0.2; position: absolute; top: -10px; left: -5px; transition: color 0.3s ease;"></i>
-                        <p style="color: #555; font-style: italic; line-height: 1.7; margin-bottom: 0; padding-left: 15px; transition: color 0.3s ease;">"Horntech ! provided exactly what we needed, efficiently and professionally. Highly recommended website"</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

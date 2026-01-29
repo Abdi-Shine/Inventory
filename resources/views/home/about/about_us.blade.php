@@ -4,7 +4,7 @@
 
   <!-- End mobile menu -->
 
-  <div class="breadcrumb-wrapper light-bg">
+  <div class="breadcrumb-wrapper">
     <style>
       @media (max-width: 991px) {
         .lonyo-about-us-wrap {
@@ -42,6 +42,27 @@
             margin-bottom: 15px;
         }
       }
+      /* Fix for desktop/all screens to constrain icon size */
+      .lonyo-about-us-feature-wrap {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          background-color: #ffffff !important;
+      }
+      .lonyo-about-us-feature-icon {
+          flex: 0 0 80px; /* Fixed width */
+          width: 80px;
+      }
+      .lonyo-about-us-feature-icon img {
+          width: 100%;
+          height: auto;
+      }
+      /* Reduce breadcrumb spacing and set white background */
+      .breadcrumb-wrapper {
+          padding-top: 50px !important;
+          padding-bottom: 50px !important;
+          background-color: #ffffff !important;
+      }
     </style>
     <div class="container">
 
@@ -69,18 +90,13 @@
       <div class="row">
         <div class="col-lg-5">
           <div class="lonyo-about-us-thumb2 pr-51" data-aos="fade-up" data-aos-duration="700">
-            <img src="{{ asset('frontend/assets') }}/images/about-us/img7.png" alt="" style="width: 100%; height: auto;">
+            <img src="{{ (!empty($about->about_image)) ? asset($about->about_image) : asset('upload/no_image.jpg') }}" alt="" style="width: 100%; height: auto;">
           </div>
         </div>
         <div class="col-lg-7 d-flex align-items-center">
           <div class="lonyo-default-content pl-32" data-aos="fade-up" data-aos-duration="900">
-            <h2>Our mission is to bring financial wellness</h2>
-            <p>We believe financial wellness is key to a better life. Our mission is to empower individuals and
-              businesses with the tools they need to understand, manage, and grow their financial health.</p>
-            <p>With our app, you can easily track spending, set budgets, automate savings, and get real-time insights
-              into your financial world. </p>
-            <p>For businesses, our software offers seamless integration with your existing tools to ensure that your
-              accounting, invoicing, and financial reporting are effortless and organized.</p>
+            <h2>{{ $about->title }}</h2>
+            <p>{{ $about->short_description }}</p>
           </div>
         </div>
       </div>
@@ -93,52 +109,29 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="lonyo-default-content pr-50 feature-wrap">
-            <h2>Our core values ​​serve as our driving force</h2>
-            <p class="max-w616">Our core values ​​are at the core of everything we do. Ensuring the integrity, security
-              and privacy of your data. Innovation, providing cutting-edge tools to simplify financial management. </p>
+            <h2>{{ $about->long_title }}</h2>
+            <p class="max-w616">{{ $about->long_description }}</p>
           </div>
         </div>
         <div class="col-lg-5">
-          <div class="lonyo-about-us-feature-wrap one" data-aos="fade-up" data-aos-duration="500">
+        	@php
+                $classes = ['one', 'two', 'three', 'four'];
+        	@endphp
+        	@foreach($multiImage as $key => $item)
+            @php
+                $currentClass = $classes[$key % 4] ?? 'one';
+                $duration = 500 + ($key * 200);
+            @endphp
+          <div class="lonyo-about-us-feature-wrap {{ $currentClass }}" data-aos="fade-up" data-aos-duration="{{ $duration }}">
             <div class="lonyo-about-us-feature-icon">
-              <img src="{{ asset('frontend/assets') }}/images/about-us/icon1.svg" alt="">
+              <img src="{{ asset($item->image) }}" alt="">
             </div>
             <div class="lonyo-about-us-feature-content">
-              <h4>User-Centric Innovation</h4>
-              <p>We design our apps and software with our users in mind, constantly evolving to meet their financial
-                needs and solutions.</p>
+              <h4>{{ $item->title }}</h4>
+              <p>{{ $item->description }}</p>
             </div>
           </div>
-          <div class="lonyo-about-us-feature-wrap two" data-aos="fade-up" data-aos-duration="700">
-            <div class="lonyo-about-us-feature-icon">
-              <img src="{{ asset('frontend/assets') }}/images/about-us/icon2.svg" alt="">
-            </div>
-            <div class="lonyo-about-us-feature-content">
-              <h4>Transparency</h4>
-              <p>We believe in clear communication and full transparency in all our practices, providing users with
-                accurate financial insights.</p>
-            </div>
-          </div>
-          <div class="lonyo-about-us-feature-wrap three" data-aos="fade-up" data-aos-duration="900">
-            <div class="lonyo-about-us-feature-icon">
-              <img src="{{ asset('frontend/assets') }}/images/about-us/icon3.svg" alt="">
-            </div>
-            <div class="lonyo-about-us-feature-content">
-              <h4>Integrity & Trust</h4>
-              <p>We build lasting relationships with our users by consistently delivering reliable, ethical, and also
-                trustworthy services.</p>
-            </div>
-          </div>
-          <div class="lonyo-about-us-feature-wrap mb-0 four" data-aos="fade-up" data-aos-duration="1100">
-            <div class="lonyo-about-us-feature-icon">
-              <img src="{{ asset('frontend/assets') }}/images/about-us/icon4.svg" alt="">
-            </div>
-            <div class="lonyo-about-us-feature-content">
-              <h4>Security You Can Trust</h4>
-              <p>Your financial data is protected with top-level encryption and security protocols to ensure your
-                information is always secure.</p>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
