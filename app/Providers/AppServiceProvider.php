@@ -27,5 +27,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('products', \App\Models\Product::orderBy('title','ASC')->get());
             $view->with('titles', \App\Models\Titles::first());
         });
+
+        view()->composer(['home.index', 'home.homelayout.services', 'home.homelayout.testimonials', 'home.homelayout.stats'], function($view){
+            $view->with('features', \App\Models\Feature::latest()->get());
+            $view->with('clients', \App\Models\Client::latest()->get());
+            $view->with('stats', \App\Models\Stat::latest()->get());
+        });
     }
 }
