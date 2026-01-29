@@ -27,6 +27,7 @@ Route::get('/contact', [FrontendController::class, 'ContactUs'])->name('contact.
 Route::post('/contact/message', [FrontendController::class, 'ContactMessage'])->name('contact.message');
 Route::get('/service/details/{slug}', [FrontendController::class, 'ServiceDetails'])->name('service.details');
 Route::get('/product/details/{slug}', [FrontendController::class, 'ProductDetails'])->name('product.details');
+Route::get('/digital/marketing', [DigitalMarketingController::class, 'DigitalMarketingPage'])->name('digital.marketing');
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -141,12 +142,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
         Route::post('/update/product', 'UpdateProduct')->name('update.product');
         Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
-// Digital Marketing Routes
-Route::controller(DigitalMarketingController::class)->group(function () {
-    Route::get('/digital/marketing', 'DigitalMarketingPage')->name('digital.marketing');
-    Route::get('/edit/digital/marketing', 'EditDigitalMarketing')->name('edit.digital.marketing');
-    Route::post('/update/digital/marketing', 'UpdateDigitalMarketing')->name('update.digital.marketing');
-});
+    });
+
+    // Digital Marketing Admin Routes
+    Route::controller(DigitalMarketingController::class)->group(function () {
+        Route::get('/edit/digital/marketing', 'EditDigitalMarketing')->name('edit.digital.marketing');
+        Route::post('/update/digital/marketing', 'UpdateDigitalMarketing')->name('update.digital.marketing');
+    });
+
 
  // Features Routes
  Route::controller(FeatureController::class)->group(function(){
